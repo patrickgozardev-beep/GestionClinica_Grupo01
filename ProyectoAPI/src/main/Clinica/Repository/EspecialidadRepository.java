@@ -1,7 +1,0 @@
-package com.clinica.repository;
-
-import com.clinica.model.Especialidad;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface EspecialidadRepository extends JpaRepository<Especialidad, Integer> {
-}
