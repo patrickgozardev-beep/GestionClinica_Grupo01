@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/espacios")
+@CrossOrigin(origins = "http://localhost:5173")
+
 public class EspacioController {
 
     @Autowired

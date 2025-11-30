@@ -39,7 +39,6 @@ public class Espacio {
     @Column(name = "actualizado_en")
     private java.sql.Timestamp actualizadoEn;
 
-    // GETTERS & SETTERS
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
