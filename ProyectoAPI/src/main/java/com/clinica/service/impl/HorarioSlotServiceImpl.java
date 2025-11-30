@@ -8,6 +8,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -39,4 +40,15 @@ public class HorarioSlotServiceImpl implements HorarioSlotService {
         }
         repository.deleteById(id);
     }
+
+    @Override
+    public List<HorarioSlot> findByFecha(Date fecha) {
+        return repository.findByFecha(fecha);
+    }
+
+    @Override
+    public List<HorarioSlot> findByFechaBetween(Date fechaInicio, Date fechaFin) {
+        return repository.findByFechaBetween(fechaInicio, fechaFin);
+    }
+
 }

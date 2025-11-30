@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/horarios-slots")
+@CrossOrigin(origins = "http://localhost:5173")
+
 public class HorarioSlotController {
 
     @Autowired
@@ -40,4 +42,21 @@ public class HorarioSlotController {
     public void delete(@PathVariable Long id) {
         service.delete(id);
     }
+
+    @GetMapping("/fecha")
+    public List<HorarioSlot> findByFecha(@RequestParam String fecha) {
+        return service.findByFecha(java.sql.Date.valueOf(fecha));
+    }
+
+    @GetMapping("/rango")
+    public List<HorarioSlot> findByRango(
+            @RequestParam String fechaInicio,
+            @RequestParam String fechaFin
+    ) {
+        return service.findByFechaBetween(
+                java.sql.Date.valueOf(fechaInicio),
+                java.sql.Date.valueOf(fechaFin)
+        );
+    }
+
 }

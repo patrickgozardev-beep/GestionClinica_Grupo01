@@ -8,7 +8,7 @@ public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Short id;
+    private Integer id;
 
     @Column(nullable = false, unique = true, length = 50)
     private String nombre;
@@ -17,8 +17,8 @@ public class Rol {
     private String descripcion;
 
     // GETTERS & SETTERS
-    public Short getId() { return id; }
-    public void setId(Short id) { this.id = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }

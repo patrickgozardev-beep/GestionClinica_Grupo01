@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/especialidades")
+@CrossOrigin(origins = "http://localhost:5173")
+
 public class EspecialidadController {
 
     @Autowired
@@ -40,4 +42,6 @@ public class EspecialidadController {
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }
+
+
 }

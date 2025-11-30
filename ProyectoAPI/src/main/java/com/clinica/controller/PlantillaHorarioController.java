@@ -1,6 +1,6 @@
 package com.clinica.controller;
 
-import com.clinica.model.PlantillaHorario;
+import com.clinica.dto.PlantillaHorarioDto;
 import com.clinica.service.PlantillaHorarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,30 +10,31 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/plantillas-horario")
+@CrossOrigin(origins = "http://localhost:5173")
 public class PlantillaHorarioController {
 
     @Autowired
     private PlantillaHorarioService service;
 
     @GetMapping
-    public List<PlantillaHorario> findAll() {
-        return service.findAll();
+    public List<PlantillaHorarioDto> findAll() {
+        return service.findAllDTO();
     }
 
     @GetMapping("/{id}")
-    public PlantillaHorario findById(@PathVariable Long id) {
-        return service.findById(id);
+    public PlantillaHorarioDto findById(@PathVariable Long id) {
+        return service.findByIdDTO(id);
     }
 
     @PostMapping
-    public PlantillaHorario create(@RequestBody PlantillaHorario plantilla) {
-        return service.save(plantilla);
+    public PlantillaHorarioDto create(@RequestBody PlantillaHorarioDto dto) {
+        return service.saveFromDTO(dto);
     }
 
     @PutMapping("/{id}")
-    public PlantillaHorario update(@PathVariable Long id, @RequestBody PlantillaHorario plantilla) {
-        plantilla.setId(id);
-        return service.save(plantilla);
+    public PlantillaHorarioDto update(@PathVariable Long id, @RequestBody PlantillaHorarioDto dto) {
+        dto.setId(id);
+        return service.saveFromDTO(dto);
     }
 
     @DeleteMapping("/{id}")

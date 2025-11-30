@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/roles")
+@CrossOrigin(origins = "http://localhost:5173")
+
 public class RolController {
 
     @Autowired
@@ -31,7 +33,7 @@ public class RolController {
     }
 
     @PutMapping("/{id}")
-    public Rol update(@PathVariable Short id, @RequestBody Rol rol) {
+    public Rol update(@PathVariable Integer id, @RequestBody Rol rol) {
         rol.setId(id);
         return service.save(rol);
     }

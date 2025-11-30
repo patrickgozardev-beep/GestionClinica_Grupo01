@@ -8,4 +8,6 @@ public interface HorarioSlotService {
     HorarioSlot findById(Long id);
     HorarioSlot save(HorarioSlot slot);
     void delete(Long id);
+    List<HorarioSlot> findByFecha(java.sql.Date fecha);
+    List<HorarioSlot> findByFechaBetween(java.sql.Date fechaInicio, java.sql.Date fechaFin);
 }
